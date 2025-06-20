@@ -1,0 +1,118 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  /* Firefox scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+}
+p {
+  user-select: text;
+}
+p::selection {
+  color: var(--selection-text);
+  background-color: var(--selection-bg);
+}
+:root {
+  width: 100%;
+  height: 100vh;
+  /* Variables */
+
+  /* Colors */
+
+  /* Selection */
+  --selection-text: #fff;
+  --selection-bg: #0a8f6a;
+
+  /* Borders */
+  --soft-border: #dbdbdb;
+
+  /* Hover */
+  --hover-bg-color: rgba(224, 224, 224, 0.455);
+  --green-btn-hover: #065f46;
+
+  /* Primary */
+  --primary-bg-color: #f9f9f9;
+  --primary-accent: #1f2937;
+
+  /* Secondary */
+  --accent-secondary: #047857;
+  --secondary-title:#056c48;
+  --secondary-p-text: #555;
+
+  /* Component Specific */
+  --card-bg: rgba(238, 238, 238, 0.6);
+  /* Measures */
+  --header-height: 80px;
+
+  /* Scroll bar */
+  --scroll-track: #f0f0f0;
+  --scroll-thumb: #aaa;
+}
+.darkmode {
+  /* Selection */
+  --selection-text: #000000;
+  --selection-bg: #34d399;
+  /* Borders */
+  --soft-border: #2a2a2a;
+  /* Hover */
+  --hover-bg-color: rgba(35, 35, 35, 0.7);
+  --green-btn-hover: #047857;
+  /* Primary */
+  --primary-bg-color: #121212;
+  --primary-accent: #10b981;
+  /* Secondary */
+  --accent-secondary: #10b981;
+  --secondary-title:#d2d2d2;
+  --secondary-p-text: #e0e0e0;
+  /* Component Specific */
+  --card-bg: rgba(17, 17, 17, 0.6);
+  /* Scroll bar */
+  --scroll-track: #1a1a1a;
+  --scroll-thumb: #555;
+}
+html {
+  width: 100%;
+  height: 100vh;
+  scroll-behavior: smooth;
+}
+body {
+  color: var(--primary-accent);
+  background-color: var(--primary-bg-color);
+  line-height: 1.6;
+  width: 100%;
+  height: 100vh;
+}
+
+main {
+  width: 100%;
+  height: fit-content;
+  position: absolute;
+  top: var(--header-height);
+  overflow-y: auto;
+}
+.layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - var(--header-height));
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scroll-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}

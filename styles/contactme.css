@@ -1,0 +1,82 @@
+.contact-container {
+  max-width: 1000px;
+  width: 100%;
+  text-align: center;
+  padding: 50px;
+}
+
+h1 {
+  font-size: 3.1rem;
+  margin-bottom: 3rem;
+  color: var(--accent-secondary);
+  letter-spacing: 3px;
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  width: 150px;
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transform: perspective(1000px) rotateX(0deg);
+}
+
+.card:hover {
+  transform: perspective(1000px) rotateX(5deg) scale(1.05);
+  box-shadow: 0 0 5px var(--primary-accent), 0 0 5px var(--primary-accent);
+}
+
+.icon svg {
+  width: 30px;
+  height: 30px;
+  fill: var(--accent-secondary);
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.card:hover svg {
+  opacity: 1;
+}
+
+.label {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: var(--primary-accent);
+}
+
+.grid a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 975px) {
+  .layout {
+    height: fit-content;
+  }
+}
+
+.darkmode h1 {
+  text-shadow: 0 0 10px var(--accent-secondary);
+}

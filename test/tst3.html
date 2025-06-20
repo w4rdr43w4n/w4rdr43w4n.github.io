@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Multiple Flip Cards</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 2rem;
+      background: #111;
+      font-family: sans-serif;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .flip-card-container {
+      width: 300px;
+      height: 200px;
+      perspective: 1000px;
+      position: relative;
+    }
+
+    .flip-card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
+      cursor: pointer;
+    }
+
+    .flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      color: white;
+      font-size: 1.5rem;
+      padding: 20px;
+    }
+
+    .front {
+      background: teal;
+    }
+
+    .back {
+      background: crimson;
+      transform: rotateY(180deg);
+      flex-direction: column;
+      position: relative;
+    }
+
+    .back a {
+      padding: 10px 20px;
+      background: white;
+      color: crimson;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    .close-btn {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: white;
+      color: crimson;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Card 1 -->
+  <div class="flip-card-container">
+    <div class="flip-card">
+      <div class="card-face front">Card 1</div>
+      <div class="card-face back">
+        <span>Back Side 1</span>
+        <a href="#">Visit</a>
+        <button class="close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="flip-card-container">
+    <div class="flip-card">
+      <div class="card-face front">Card 2</div>
+      <div class="card-face back">
+        <span>Back Side 2</span>
+        <a href="#">Read More</a>
+        <button class="close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="flip-card-container">
+    <div class="flip-card">
+      <div class="card-face front">Card 3</div>
+      <div class="card-face back">
+        <span>Back Side 3</span>
+        <a href="#">Open</a>
+        <button class="close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.flip-card').forEach(card => {
+      const closeBtn = card.querySelector('.close-btn');
+
+      card.addEventListener('click', () => {
+        card.classList.add('flipped');
+      });
+
+      closeBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        card.classList.remove('flipped');
+      });
+    });
+  </script>
+
+</body>
+</html>
