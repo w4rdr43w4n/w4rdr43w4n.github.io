@@ -3,97 +3,100 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  padding: 25px 50px;
+  padding: 2rem;
+  margin: auto;
+  max-width: 660px;
+  width: 100%;
+  border-radius: 0.75rem;
   background-color: transparent;
   outline: 1px solid #b5b5b5;
-  height: fit-content;
-  max-height: 450px;
-  width: fit-content;
   backdrop-filter: blur(5px);
-  z-index: 1;
+  box-sizing: border-box;
 }
 
 .darkmode .hero-content {
-  outline: none;
   background-color: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(5px);
+  outline: none;
   box-shadow: 0 0 6px var(--accent-secondary);
 }
 
 .hero-content h1 {
-  font-size: clamp(2rem, 6vw + 2vh, 5rem);
-  margin: 20px;
+  font-size: clamp(2rem, 6vw, 4rem);
   color: var(--accent-secondary);
-}
-.hero-content h2 {
-  font-size: clamp(1rem, 3vw + 1vh, 2rem);
-  color: var(--secondary-title);
-  margin: 5px;
-}
-.hero-content p {
-  font-size: clamp(1rem, 2vw + 1vh, 2rem);
-  margin-bottom: 20px;
   text-align: center;
+  margin-bottom: 1rem;
+}
+
+.hero-content h2 {
+  font-size: clamp(1.25rem, 4vw, 2rem);
+  color: var(--secondary-title);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
   color: var(--secondary-p-text);
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
 .btn-download {
-  display: flex;
-  width: fit-content;
+  display: inline-flex;
   align-items: center;
-  padding: 12px 24px;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
   background-color: var(--accent-secondary);
   color: var(--primary-bg-color);
   text-decoration: none;
-  font-weight: bold;
-  border-radius: 6px;
-  transition: background 0.3s ease;
-}
-
-.btn-download svg {
-  fill: var(--primary-bg-color);
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
+  transition: background-color 0.3s ease;
+  gap: 0.5rem;
+  width: fit-content;
 }
 
 .btn-download:hover {
   background-color: var(--green-btn-hover);
 }
 
-/* Darkmode */
-.darkmode .hero-content h1 {
-  color: var(--accent-secondary);
+.btn-download svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: var(--primary-bg-color);
 }
+
+.darkmode .hero-content h1,
+.darkmode .btn-download {
+  color: var(--primary-bg-color);
+  background-color: var(--accent-secondary);
+}
+
 .darkmode .hero-content p {
   color: var(--secondary-p-text);
 }
 
-.darkmode .btn-download {
-  background-color: var(--accent-secondary);
-  color: var(--primary-bg-color);
-}
-
-.darkmode .btn-download:hover {
-  background-color: var(--green-btn-hover);
-}
-
+/* Typewriter Effect */
 .typewriter {
   display: flex;
   justify-content: center;
-}
-.typewriter h1 {
-  font-family: monospace;
-  margin-inline: auto;
+  width: 100%;
   overflow: hidden;
-  white-space: nowrap;
-  border-right: 5px solid;
-  padding-right: 10px;
-  animation: typing 0.5s steps(23) forwards, blink 0.75s step-end infinite;
 }
 
-/* Animations */
+.typewriter h1 {
+  font-family: monospace;
+  white-space: nowrap;
+  border-right: 3px solid;
+  padding-right: 8px;
+  overflow: hidden;
+  animation: typing 0.75s steps(30) forwards, blink 0.75s step-end infinite;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  text-align: center;
+  margin: 1rem auto;
+}
+
 @keyframes typing {
   from {
     width: 0;
@@ -102,45 +105,35 @@
     width: 100%;
   }
 }
+
 @keyframes blink {
   50% {
     border-color: transparent;
   }
 }
-/* Media queries */
 
-@media (max-width: 850px) or (max-height: 500px) {
-  .hero-content h1 {
-    font-size: 3.5rem;
-  }
-  .hero-content h2 {
-    font-size: 1.5rem;
-  }
-  .hero-content p {
-    font-size: 1.3rem;
-  }
-}
-@media (max-height: 600px) {
-  .hero-content h1 {
-    font-size: 7vh;
-  }
-  .hero-content h2 {
-    font-size: 4vh;
-  }
-  .hero-content p {
-    font-size: 3vh;
-  }
+/* Responsive Adjustments */
+@media (max-width: 600px) {
   .hero-content {
-    height: 65vh;
-    margin: 20px;
+    padding: 1.5rem;
   }
   .btn-download {
-    height: fit-content;
-    font-size: 3vh;
-    padding: 2vh;
+    width: 100%;
+    justify-content: center;
+    font-size: 0.95rem;
   }
-  .btn-download svg {
-    width: 3vh;
-    height: 3vh;
+  .typewriter h1 {
+    font-size: 1.5rem;
+    border-right: 2px solid;
+    padding-right: 6px;
   }
+}
+.hero-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 1rem;
+  width: 100%;
+  min-height: calc(100vh - var(--header-height));
+  box-sizing: border-box;
 }
